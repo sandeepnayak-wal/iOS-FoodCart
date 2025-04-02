@@ -20,13 +20,6 @@ A modern and user-friendly eCommerce application built with Swift and UIKit. The
 - "Select All" option to choose all items at once.
 - Checkout button for finalizing purchases.
 
-## 📱 Screenshots
-
-| Home Screen | Product Details | Cart |
-|-------------|----------------|------|
-| ![Uploading Screenshot 2025-04-02 at 18.03.09.png…]() | ![Product Details](./screenshots/details.png) | ![Cart](./screenshots/cart.png) |
-
-
 ## 🛠️ Tech Stack
 - **Swift**
 - **UIKit**
@@ -37,7 +30,7 @@ A modern and user-friendly eCommerce application built with Swift and UIKit. The
 ## 📌 Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ecommerce-ios.git
+   git clone https://github.com/sandeepnayak-wal/ecommerce-ios.git
 Open the project in Xcode.
 
 Run the project on a simulator or device.
