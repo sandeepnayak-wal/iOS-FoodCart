@@ -49,5 +49,5 @@ Integrating Apple Pay for seamless checkout.
 Enhancing UI/UX with animations.
 
 👨‍💻 Author
-Developed by Sandeep. Feel free to connect on LinkedIn.
+Developed by Sandeep. Feel free to connect on [LinkedIn.](https://www.linkedin.com/in/sandeepmegavath/)
 
