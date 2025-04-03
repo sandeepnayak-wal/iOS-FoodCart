@@ -140,6 +140,7 @@
 				2C4C8D812D9C466D00948794 /* Info.plist */,
 				2C4C8D832D9C466D00948794 /* LaunchScreen.storyboard */,
 				2C4C8D862D9C466D00948794 /* SceneDelegate.swift */,
+				2C4C8D852D9C466D00948794 /* Main.storyboard */,
 			);
 			path = haystekEcomLite;
 			sourceTree = "<group>";
@@ -173,7 +174,6 @@
 		2C4C8D992D9C469700948794 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C4C8D852D9C466D00948794 /* Main.storyboard */,
 				2C4C8D9F2D9C49C800948794 /* HomeViewController.swift */,
 				2C4C8DA12D9C49E300948794 /* CatalogViewController.swift */,
 				2C4C8DA32D9C49F700948794 /* CartViewController.swift */,

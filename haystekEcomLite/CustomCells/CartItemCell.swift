@@ -90,8 +90,6 @@ class CartItemCell: UITableViewCell {
     }
     
     @objc private func selectTapped() {
-        // This would need to communicate back to update the CartManager
-        // For now, just toggle the button image
         let isSelected = selectButton.image(for: .normal) == UIImage(systemName: "checkmark.square.fill")
         selectButton.setImage(UIImage(systemName: isSelected ? "square" : "checkmark.square.fill"),
                             for: .normal)

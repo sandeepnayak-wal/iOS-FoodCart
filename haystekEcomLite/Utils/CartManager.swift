@@ -12,14 +12,13 @@ class CartManager {
     var cartItems: [CartItem] = []
     
     func addToCart(product: ProductModel) {
-        // Convert product.id to String for comparison
         let productId = String(product.id)
         
         if let index = cartItems.firstIndex(where: { $0.id == productId }) {
             cartItems[index].quantity += 1
         } else {
             let newItem = CartItem(
-                product: product, id: productId, // Use the converted String
+                product: product, id: productId,
                 name: product.title,
                 price: product.price,
                 imageUrl: product.image

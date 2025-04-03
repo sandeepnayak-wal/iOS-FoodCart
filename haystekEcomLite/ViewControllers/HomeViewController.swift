@@ -116,7 +116,7 @@ class HomeViewController: UIViewController {
         setupBindings()
         viewModel.fetchFlashSaleItems()
     }
-  
+    
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(deliveryLabel)
@@ -129,7 +129,7 @@ class HomeViewController: UIViewController {
         view.addSubview(flashSaleTitle)
         view.addSubview(timerLabel)
         view.addSubview(productsCollectionView)
-
+        
         setupConstraints()
         setupNavigationBar()
         
@@ -277,7 +277,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             } else {
                 print("Error: Product is nil")
             }
-
+            
         }
     }
 }

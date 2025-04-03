@@ -154,15 +154,15 @@ class ProductDetailViewController: UIViewController {
     
     private func setupNavigationBar() {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(backButtonTapped))
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonTapped))
         backButton.tintColor = .black
         
         let heartButton = UIBarButtonItem(image: UIImage(systemName: "heart"),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(heartButtonTapped))
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(heartButtonTapped))
         heartButton.tintColor = .black
         
         let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"),
@@ -261,7 +261,7 @@ class ProductDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-
+    
     
     // MARK: - Actions
     @objc private func backButtonTapped() {
@@ -283,7 +283,6 @@ class ProductDetailViewController: UIViewController {
             showAlert(title: "Removed from Cart", message: "\(product.title) has been removed from your cart.")
         }
     }
-
     
     @objc private func shareButtonTapped() {
         let shareText = "Check out this product: \(product.title) - £\(product.price)"
@@ -307,10 +306,9 @@ class ProductDetailViewController: UIViewController {
         let cartVC = CartViewController()
         navigationController?.pushViewController(cartVC, animated: true)
         
-        // Show confirmation
         let alert = UIAlertController(title: "Added to Cart",
-                                    message: "\(product.title) has been added to your cart",
-                                    preferredStyle: .alert)
+                                      message: "\(product.title) has been added to your cart",
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }

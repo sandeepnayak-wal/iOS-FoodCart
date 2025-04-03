@@ -125,7 +125,7 @@ class CartViewController: UIViewController {
     
     private func loadCartItems() {
         cartItems = CartManager.shared.getCartItems()
-        addressLabel.text = "92 High Street, London" // Replace with user's actual address
+        addressLabel.text = "92 High Street, London" 
         tableView.reloadData()
         updateCheckoutButton()
     }
