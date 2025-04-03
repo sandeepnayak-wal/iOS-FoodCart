@@ -6,6 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2C4C8D892D9C466D00948794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D7F2D9C466D00948794 /* AppDelegate.swift */; };
+		2C4C8D8A2D9C466D00948794 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D862D9C466D00948794 /* SceneDelegate.swift */; };
+		2C4C8D8C2D9C466D00948794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4C8D802D9C466D00948794 /* Assets.xcassets */; };
+		2C4C8D8E2D9C466D00948794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4C8D832D9C466D00948794 /* LaunchScreen.storyboard */; };
+		2C4C8D8F2D9C466D00948794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4C8D852D9C466D00948794 /* Main.storyboard */; };
+		2C4C8D922D9C467600948794 /* haystekEcomLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D902D9C467600948794 /* haystekEcomLiteTests.swift */; };
+		2C4C8D962D9C467600948794 /* haystekEcomLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D932D9C467600948794 /* haystekEcomLiteUITests.swift */; };
+		2C4C8D972D9C467600948794 /* haystekEcomLiteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D942D9C467600948794 /* haystekEcomLiteUITestsLaunchTests.swift */; };
+		2C4C8D9E2D9C494D00948794 /* haystekEcomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D9D2D9C494D00948794 /* haystekEcomTabBarController.swift */; };
+		2C4C8DA02D9C49C800948794 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8D9F2D9C49C800948794 /* HomeViewController.swift */; };
+		2C4C8DA22D9C49E300948794 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DA12D9C49E300948794 /* CatalogViewController.swift */; };
+		2C4C8DA42D9C49F700948794 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DA32D9C49F700948794 /* CartViewController.swift */; };
+		2C4C8DA62D9C4A3300948794 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DA52D9C4A3300948794 /* FavouritesViewController.swift */; };
+		2C4C8DA82D9C4A4700948794 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DA72D9C4A4700948794 /* ProfileViewController.swift */; };
+		2C4C8DAB2D9C585A00948794 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DAA2D9C585A00948794 /* CategoryCell.swift */; };
+		2C4C8DAD2D9CAC6B00948794 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DAC2D9CAC6B00948794 /* ProductModel.swift */; };
+		2C4C8DAF2D9CAE0900948794 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DAE2D9CAE0900948794 /* NetworkManager.swift */; };
+		2C4C8DB12D9CAEAE00948794 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DB02D9CAEAE00948794 /* HomeViewModel.swift */; };
+		2C4C8DB32D9CAF5700948794 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DB22D9CAF5700948794 /* ProductCell.swift */; };
+		2C4C8DB52D9CB57E00948794 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DB42D9CB57E00948794 /* ImageLoader.swift */; };
+		2C4C8DB72D9CBFF800948794 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DB62D9CBFF800948794 /* ProductDetailViewController.swift */; };
+		2C4C8DB92D9CF86300948794 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DB82D9CF86300948794 /* CartItemCell.swift */; };
+		2C4C8DBB2D9CFE5E00948794 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DBA2D9CFE5E00948794 /* CartManager.swift */; };
+		2C4C8DBF2D9CFE8E00948794 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C8DBE2D9CFE8E00948794 /* CartItem.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2C4C8D622D9C463B00948794 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,38 +54,32 @@
 		2C4C8D4B2D9C463A00948794 /* haystekEcomLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haystekEcomLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4C8D612D9C463B00948794 /* haystekEcomLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = haystekEcomLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4C8D6B2D9C463B00948794 /* haystekEcomLiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = haystekEcomLiteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C4C8D7F2D9C466D00948794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C4C8D802D9C466D00948794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C4C8D812D9C466D00948794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4C8D822D9C466D00948794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C4C8D842D9C466D00948794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C4C8D862D9C466D00948794 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2C4C8D902D9C467600948794 /* haystekEcomLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haystekEcomLiteTests.swift; sourceTree = "<group>"; };
+		2C4C8D932D9C467600948794 /* haystekEcomLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haystekEcomLiteUITests.swift; sourceTree = "<group>"; };
+		2C4C8D942D9C467600948794 /* haystekEcomLiteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haystekEcomLiteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2C4C8D9D2D9C494D00948794 /* haystekEcomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haystekEcomTabBarController.swift; sourceTree = "<group>"; };
+		2C4C8D9F2D9C49C800948794 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2C4C8DA12D9C49E300948794 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		2C4C8DA32D9C49F700948794 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2C4C8DA52D9C4A3300948794 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		2C4C8DA72D9C4A4700948794 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2C4C8DAA2D9C585A00948794 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		2C4C8DAC2D9CAC6B00948794 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		2C4C8DAE2D9CAE0900948794 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2C4C8DB02D9CAEAE00948794 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2C4C8DB22D9CAF5700948794 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		2C4C8DB42D9CB57E00948794 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2C4C8DB62D9CBFF800948794 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		2C4C8DB82D9CF86300948794 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		2C4C8DBA2D9CFE5E00948794 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		2C4C8DBE2D9CFE8E00948794 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2C4C8D732D9C463B00948794 /* Exceptions for "haystekEcomLite" folder in "haystekEcomLite" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 2C4C8D4A2D9C463A00948794 /* haystekEcomLite */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2C4C8D4D2D9C463A00948794 /* haystekEcomLite */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2C4C8D732D9C463B00948794 /* Exceptions for "haystekEcomLite" folder in "haystekEcomLite" target */,
-			);
-			path = haystekEcomLite;
-			sourceTree = "<group>";
-		};
-		2C4C8D642D9C463B00948794 /* haystekEcomLiteTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = haystekEcomLiteTests;
-			sourceTree = "<group>";
-		};
-		2C4C8D6E2D9C463B00948794 /* haystekEcomLiteUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = haystekEcomLiteUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2C4C8D482D9C463A00948794 /* Frameworks */ = {
@@ -88,9 +109,9 @@
 		2C4C8D422D9C463A00948794 = {
 			isa = PBXGroup;
 			children = (
-				2C4C8D4D2D9C463A00948794 /* haystekEcomLite */,
-				2C4C8D642D9C463B00948794 /* haystekEcomLiteTests */,
-				2C4C8D6E2D9C463B00948794 /* haystekEcomLiteUITests */,
+				2C4C8D882D9C466D00948794 /* haystekEcomLite */,
+				2C4C8D912D9C467600948794 /* haystekEcomLiteTests */,
+				2C4C8D952D9C467600948794 /* haystekEcomLiteUITests */,
 				2C4C8D4C2D9C463A00948794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +124,100 @@
 				2C4C8D6B2D9C463B00948794 /* haystekEcomLiteUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2C4C8D882D9C466D00948794 /* haystekEcomLite */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8DA92D9C583300948794 /* CustomCells */,
+				2C4C8D9C2D9C46B600948794 /* Utils */,
+				2C4C8D9B2D9C46AF00948794 /* Services */,
+				2C4C8D9A2D9C46A000948794 /* ViewModels */,
+				2C4C8D992D9C469700948794 /* ViewControllers */,
+				2C4C8D982D9C468200948794 /* Models */,
+				2C4C8D7F2D9C466D00948794 /* AppDelegate.swift */,
+				2C4C8D802D9C466D00948794 /* Assets.xcassets */,
+				2C4C8D812D9C466D00948794 /* Info.plist */,
+				2C4C8D832D9C466D00948794 /* LaunchScreen.storyboard */,
+				2C4C8D862D9C466D00948794 /* SceneDelegate.swift */,
+			);
+			path = haystekEcomLite;
+			sourceTree = "<group>";
+		};
+		2C4C8D912D9C467600948794 /* haystekEcomLiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8D902D9C467600948794 /* haystekEcomLiteTests.swift */,
+			);
+			path = haystekEcomLiteTests;
+			sourceTree = "<group>";
+		};
+		2C4C8D952D9C467600948794 /* haystekEcomLiteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8D932D9C467600948794 /* haystekEcomLiteUITests.swift */,
+				2C4C8D942D9C467600948794 /* haystekEcomLiteUITestsLaunchTests.swift */,
+			);
+			path = haystekEcomLiteUITests;
+			sourceTree = "<group>";
+		};
+		2C4C8D982D9C468200948794 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8DAC2D9CAC6B00948794 /* ProductModel.swift */,
+				2C4C8DBE2D9CFE8E00948794 /* CartItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C4C8D992D9C469700948794 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8D852D9C466D00948794 /* Main.storyboard */,
+				2C4C8D9F2D9C49C800948794 /* HomeViewController.swift */,
+				2C4C8DA12D9C49E300948794 /* CatalogViewController.swift */,
+				2C4C8DA32D9C49F700948794 /* CartViewController.swift */,
+				2C4C8DA52D9C4A3300948794 /* FavouritesViewController.swift */,
+				2C4C8DA72D9C4A4700948794 /* ProfileViewController.swift */,
+				2C4C8DB62D9CBFF800948794 /* ProductDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C4C8D9A2D9C46A000948794 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8DB02D9CAEAE00948794 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2C4C8D9B2D9C46AF00948794 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8DAE2D9CAE0900948794 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2C4C8D9C2D9C46B600948794 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8D9D2D9C494D00948794 /* haystekEcomTabBarController.swift */,
+				2C4C8DB42D9CB57E00948794 /* ImageLoader.swift */,
+				2C4C8DBA2D9CFE5E00948794 /* CartManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2C4C8DA92D9C583300948794 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C8DAA2D9C585A00948794 /* CategoryCell.swift */,
+				2C4C8DB22D9CAF5700948794 /* ProductCell.swift */,
+				2C4C8DB82D9CF86300948794 /* CartItemCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,12 +235,7 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				2C4C8D4D2D9C463A00948794 /* haystekEcomLite */,
-			);
 			name = haystekEcomLite;
-			packageProductDependencies = (
-			);
 			productName = haystekEcomLite;
 			productReference = 2C4C8D4B2D9C463A00948794 /* haystekEcomLite.app */;
 			productType = "com.apple.product-type.application";
@@ -143,12 +253,7 @@
 			dependencies = (
 				2C4C8D632D9C463B00948794 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				2C4C8D642D9C463B00948794 /* haystekEcomLiteTests */,
-			);
 			name = haystekEcomLiteTests;
-			packageProductDependencies = (
-			);
 			productName = haystekEcomLiteTests;
 			productReference = 2C4C8D612D9C463B00948794 /* haystekEcomLiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -166,12 +271,7 @@
 			dependencies = (
 				2C4C8D6D2D9C463B00948794 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				2C4C8D6E2D9C463B00948794 /* haystekEcomLiteUITests */,
-			);
 			name = haystekEcomLiteUITests;
-			packageProductDependencies = (
-			);
 			productName = haystekEcomLiteUITests;
 			productReference = 2C4C8D6B2D9C463B00948794 /* haystekEcomLiteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -225,6 +325,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4C8D8C2D9C466D00948794 /* Assets.xcassets in Resources */,
+				2C4C8D8E2D9C466D00948794 /* LaunchScreen.storyboard in Resources */,
+				2C4C8D8F2D9C466D00948794 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +352,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4C8DBB2D9CFE5E00948794 /* CartManager.swift in Sources */,
+				2C4C8DAF2D9CAE0900948794 /* NetworkManager.swift in Sources */,
+				2C4C8DA62D9C4A3300948794 /* FavouritesViewController.swift in Sources */,
+				2C4C8DB52D9CB57E00948794 /* ImageLoader.swift in Sources */,
+				2C4C8DBF2D9CFE8E00948794 /* CartItem.swift in Sources */,
+				2C4C8DA22D9C49E300948794 /* CatalogViewController.swift in Sources */,
+				2C4C8DA42D9C49F700948794 /* CartViewController.swift in Sources */,
+				2C4C8DA02D9C49C800948794 /* HomeViewController.swift in Sources */,
+				2C4C8DB92D9CF86300948794 /* CartItemCell.swift in Sources */,
+				2C4C8DB32D9CAF5700948794 /* ProductCell.swift in Sources */,
+				2C4C8D892D9C466D00948794 /* AppDelegate.swift in Sources */,
+				2C4C8D8A2D9C466D00948794 /* SceneDelegate.swift in Sources */,
+				2C4C8DA82D9C4A4700948794 /* ProfileViewController.swift in Sources */,
+				2C4C8DB12D9CAEAE00948794 /* HomeViewModel.swift in Sources */,
+				2C4C8DAD2D9CAC6B00948794 /* ProductModel.swift in Sources */,
+				2C4C8DB72D9CBFF800948794 /* ProductDetailViewController.swift in Sources */,
+				2C4C8D9E2D9C494D00948794 /* haystekEcomTabBarController.swift in Sources */,
+				2C4C8DAB2D9C585A00948794 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4C8D922D9C467600948794 /* haystekEcomLiteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4C8D962D9C467600948794 /* haystekEcomLiteUITests.swift in Sources */,
+				2C4C8D972D9C467600948794 /* haystekEcomLiteUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +404,25 @@
 			targetProxy = 2C4C8D6C2D9C463B00948794 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C4C8D832D9C466D00948794 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C4C8D822D9C466D00948794 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2C4C8D852D9C466D00948794 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C4C8D842D9C466D00948794 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2C4C8D752D9C463B00948794 /* Debug */ = {

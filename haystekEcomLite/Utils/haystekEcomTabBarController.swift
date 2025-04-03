@@ -33,7 +33,7 @@ class haystekEcomTabBarController: UITabBarController {
         
         self.viewControllers = [homeVC, catalogVC, cartVC, favoritesVC, profileVC]
         self.tabBar.unselectedItemTintColor = UIColor.gray
-        self.tabBar.tintColor = UIColor.green
+        self.tabBar.tintColor = .systemGreen
     }
     
 }

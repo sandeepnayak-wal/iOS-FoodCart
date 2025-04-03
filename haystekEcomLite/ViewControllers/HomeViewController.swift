@@ -9,7 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    // Top Section
+    private let viewModel = HomeViewModel()
+    
     private let deliveryLabel: UILabel = {
         let label = UILabel()
         label.text = "Delivery address"
@@ -46,7 +47,6 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    // Categories Section
     private let categoriesTitle: UILabel = {
         let label = UILabel()
         label.text = "Categories"
@@ -74,7 +74,6 @@ class HomeViewController: UIViewController {
         return cv
     }()
     
-    // Flash Sale Section
     private let flashSaleTitle: UILabel = {
         let label = UILabel()
         label.text = "Flash Sale"
@@ -86,7 +85,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "02:59:23"
         label.font = .monospacedDigitSystemFont(ofSize: 14, weight: .medium)
-        label.textColor = .red
+        label.textColor = .black
         return label
     }()
     
@@ -102,19 +101,22 @@ class HomeViewController: UIViewController {
         return cv
     }()
     
+    //Used standard icons as i don't have access to figma designs
     private let categories = [
-           ("Phones", "phone"),
-           ("Consoles", "gamecontroller"),
-           ("Laptops", "laptopcomputer"),
-           ("Cameras", "camera"),
-           ("Audio", "headphones")
-       ]
-
+        ("Phones", "phone"),
+        ("Consoles", "gamecontroller"),
+        ("Laptops", "laptopcomputer"),
+        ("Cameras", "camera"),
+        ("Audio", "headphones")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupBindings()
+        viewModel.fetchFlashSaleItems()
     }
-    
+  
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(deliveryLabel)
@@ -130,6 +132,14 @@ class HomeViewController: UIViewController {
 
         setupConstraints()
         setupNavigationBar()
+        
+        categoriesCollectionView.dataSource = self
+        categoriesCollectionView.delegate = self
+        categoriesCollectionView.register(CategoryCell.self, forCellWithReuseIdentifier: "CategoryCell")
+        
+        productsCollectionView.dataSource = self
+        productsCollectionView.delegate = self
+        productsCollectionView.register(ProductCell.self, forCellWithReuseIdentifier: "ProductCell")
     }
     
     private func setupConstraints() {
@@ -154,14 +164,12 @@ class HomeViewController: UIViewController {
             searchBar.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 16),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-          
-            // Promo Label
+            
             promoLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
             promoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             promoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             promoLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            // Categories Section
             categoriesTitle.topAnchor.constraint(equalTo: promoLabel.bottomAnchor, constant: 24),
             categoriesTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
@@ -173,7 +181,6 @@ class HomeViewController: UIViewController {
             categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 100),
             
-            // Flash Sale Section
             flashSaleTitle.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 24),
             flashSaleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
@@ -184,13 +191,10 @@ class HomeViewController: UIViewController {
             productsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             productsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             productsCollectionView.heightAnchor.constraint(equalToConstant: 240),
-            
-           
         ])
     }
     
     private func setupNavigationBar() {
-        // Create settings button
         let settingsButton = UIBarButtonItem(
             image: UIImage(systemName: "gearshape"),
             style: .plain,
@@ -198,7 +202,6 @@ class HomeViewController: UIViewController {
             action: #selector(settingsButtonTapped)
         )
         
-        // Create notification button (without badge)
         let notificationButton = UIBarButtonItem(
             image: UIImage(systemName: "bell.fill"),
             style: .plain,
@@ -206,34 +209,77 @@ class HomeViewController: UIViewController {
             action: #selector(notificationButtonTapped)
         )
         
-        // Add buttons to navigation bar
         navigationItem.leftBarButtonItem = settingsButton
         navigationItem.rightBarButtonItem = notificationButton
-        
-        // Customize appearance
         navigationController?.navigationBar.tintColor = .black
     }
-
+    
     @objc private func settingsButtonTapped() {
-        // Handle settings button tap
         print("Settings button tapped")
     }
-
+    
     @objc private func notificationButtonTapped() {
-        // Handle notification button tap
         print("Notification button tapped")
+    }
+    
+    private func setupBindings() {
+        viewModel.onDataUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.productsCollectionView.reloadData()
+            }
+        }
+        
+        viewModel.onError = { [weak self] errorMessage in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Error",
+                                              message: errorMessage,
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(alert, animated: true)
+            }
+        }
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if collectionView == categoriesCollectionView {
+            return categories.count
+        } else {
+            return viewModel.flashSaleItems.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-        let category = categories[indexPath.item]
-        cell.configure(with: category.0, systemImageName: category.1)
-        return cell
+        if collectionView == categoriesCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+            let category = categories[indexPath.item]
+            cell.configure(with: category.0, systemImageName: category.1)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+            let flashSaleItem = viewModel.flashSaleItems[indexPath.item]
+            cell.configure(with: flashSaleItem)
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == productsCollectionView {
+            let selectedItem = viewModel.flashSaleItems[indexPath.item]
+            if let product = selectedItem.product {
+                let detailVC = ProductDetailViewController(product: product)
+                navigationController?.pushViewController(detailVC, animated: true)
+            } else {
+                print("Error: Product is nil")
+            }
+
+        }
     }
 }
+
+
