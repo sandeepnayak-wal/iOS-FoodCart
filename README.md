@@ -21,7 +21,8 @@ A modern and user-friendly eCommerce application built with Swift and UIKit. The
 - Checkout button for finalizing purchases.
   
 ### 🔹 Demo Video
-![Uploading Demo.gif…]()
+
+![gifDemo](https://github.com/user-attachments/assets/95cb6c92-9704-4828-9c6d-e381ad436ef3)
 
 
 ## 🛠️ Tech Stack
