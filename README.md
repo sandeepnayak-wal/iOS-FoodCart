@@ -22,8 +22,7 @@ A modern and user-friendly eCommerce application built with Swift and UIKit. The
   
 ### 🔹 Demo Video
 
-![gifDemo](https://github.com/user-attachments/assets/95cb6c92-9704-4828-9c6d-e381ad436ef3)
-
+https://github.com/user-attachments/assets/67f52356-4a9b-419d-8f26-15275d03cc96
 
 ## 🛠️ Tech Stack
 - **Swift**
