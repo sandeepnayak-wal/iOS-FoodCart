@@ -1,4 +1,4 @@
-# 🛒 iOS-FoodCart
+# 🍔 MiniEcom
 
 A simple iOS E-Commerce demo app built with **UIKit + Swift**.
 
