@@ -1,46 +1,25 @@
-# 🛍️ ECommerce iOS App
+<img width="311" height="673" alt="Screenshot 2025-08-24 at 10 29 00" src="https://github.com/user-attachments/assets/7629eebb-853f-4886-a26e-13c9797f9a73" /># 🛒 SwiftCart
 
-A modern and user-friendly eCommerce application built with Swift and UIKit. The app allows users to browse products, view detailed descriptions, add items to their cart, and proceed to checkout.
+A simple iOS E-Commerce demo app built with **UIKit + Swift**.
 
-## 🚀 Features
+## ✨ Features
+- Browse products
+- Product detail view
+- Add to cart
+- Light/Dark mode support
 
-### 🔹 Home Screen
-- Displays a list of product categories.
-- Includes a "Flash Sale" section with discounts and countdown timers.
-- Search bar to find specific products.
+## 📱 Screenshots
+<img width="325" height="671" alt="Screenshot 2025-08-24 at 10 28 40" src="https://github.com/user-attachments/assets/43080094-82ef-4302-b68e-7e36902ee08c" />
+<img width="335" height="666" alt="Screenshot 2025-08-24 at 10 28 46" src="https://github.com/user-attachments/assets/98a292e2-075e-4518-bbde-769d994f5167" />
+<img width="311" height="673" alt="Screenshot 2025-08-24 at 10 29 00" src="https://github.com/user-attachments/assets/56c77eb8-1dfc-4b22-a2e1-873f046ce9ef" />
+## 🎥 Demo
 
-### 🔹 Product Detail Screen
-- High-quality product images.
-- Displays price, rating, and stock information.
-- Favorite (heart) button to save items.
-- "Add to Cart" functionality.
+https://github.com/user-attachments/assets/b3f606c7-0c51-46f5-aeb9-d6c899e20643
 
-### 🔹 Cart Screen
-- Lists selected items with their images, prices, and quantity controls.
-- "Select All" option to choose all items at once.
-- Checkout button for finalizing purchases.
-  
-### 🔹 Demo Video
-
-https://github.com/user-attachments/assets/67f52356-4a9b-419d-8f26-15275d03cc96
-
-## 🛠️ Tech Stack
-- **Swift**
-- **UIKit**
-- **MVVM Architecture**
-- **CoreData / UserDefaults (for cart management)**
-- **Networking (URLSession for API calls)**
-
-## 📌 Installation
-1. Clone the repository:
+## 🚀 Installation
+1. Clone the repo
    ```bash
-   git clone https://github.com/sandeepnayak-wal/ecommerce-ios.git
-Open the project in Xcode.
-
-Run the project on a simulator or device.
-
-💡 Future Improvements
-Implementing a backend API for product listings.
+   git clone https://github.com/your-username/SwiftCart.git
 
 Adding user authentication (Sign In / Sign Up).
 
