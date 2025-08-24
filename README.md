@@ -1,4 +1,4 @@
-<img width="311" height="673" alt="Screenshot 2025-08-24 at 10 29 00" src="https://github.com/user-attachments/assets/7629eebb-853f-4886-a26e-13c9797f9a73" /># 🛒 SwiftCart
+# 🛒 iOS-FoodCart
 
 A simple iOS E-Commerce demo app built with **UIKit + Swift**.
 
