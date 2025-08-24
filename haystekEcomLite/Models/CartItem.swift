@@ -2,13 +2,13 @@
 //  CartItem.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import Foundation
 
 struct CartItem {
-    let product: ProductModel
+    let product: MealCategory
     let id: String
     let name: String
     let price: Double

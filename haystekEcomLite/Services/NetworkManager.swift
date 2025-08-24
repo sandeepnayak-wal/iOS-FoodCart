@@ -2,28 +2,24 @@
 //  NetworkManager.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func fetchProducts(completion: @escaping (Result<[ProductModel], Error>) -> Void)
+    func fetchMealCategories(completion: @escaping (Result<[MealCategory], Error>) -> Void)
 }
-
-import Foundation
 
 class NetworkManager: NetworkServiceProtocol {
     static let shared = NetworkManager()
-    private let baseURL = "https://fakestoreapi.com"
+    private let baseURL = "https://www.themealdb.com/api/json/v1/1/categories.php"
     
-    func fetchProducts(completion: @escaping (Result<[ProductModel], Error>) -> Void) {
-        guard let url = URL(string: "\(baseURL)/products") else {
+    func fetchMealCategories(completion: @escaping (Result<[MealCategory], Error>) -> Void) {
+        guard let url = URL(string: "\(baseURL)") else {
             completion(.failure(NetworkError.invalidURL))
             return
         }
-        
-        print("URL: \(url)")
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -43,8 +39,8 @@ class NetworkManager: NetworkServiceProtocol {
             }
             
             do {
-                let products = try JSONDecoder().decode([ProductModel].self, from: data)
-                completion(.success(products))
+                let decodedResponse = try JSONDecoder().decode(MealCategoryResponse.self, from: data)
+                completion(.success(decodedResponse.categories))
             } catch {
                 completion(.failure(NetworkError.decodingError))
             }

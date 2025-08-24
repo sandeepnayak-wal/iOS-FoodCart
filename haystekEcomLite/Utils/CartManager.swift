@@ -2,7 +2,7 @@
 //  CartManager.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 class CartManager {
@@ -11,17 +11,17 @@ class CartManager {
     
     var cartItems: [CartItem] = []
     
-    func addToCart(product: ProductModel) {
-        let productId = String(product.id)
+    func addToCart(product: MealCategory) {
+        let productId = String(product.idCategory)
         
         if let index = cartItems.firstIndex(where: { $0.id == productId }) {
             cartItems[index].quantity += 1
         } else {
             let newItem = CartItem(
                 product: product, id: productId,
-                name: product.title,
-                price: product.price,
-                imageUrl: product.image
+                name: product.strCategory,
+                price: 200.00,
+                imageUrl: product.strCategoryThumb
             )
             cartItems.append(newItem)
         }
@@ -31,8 +31,8 @@ class CartManager {
         return cartItems
     }
     
-    func removeFromCart(product: ProductModel) {  
-        cartItems.removeAll { $0.product.id == product.id }
+    func removeFromCart(product: MealCategory) {
+        cartItems.removeAll { $0.product.idCategory == product.idCategory }
     }
     
     func clearCart() {

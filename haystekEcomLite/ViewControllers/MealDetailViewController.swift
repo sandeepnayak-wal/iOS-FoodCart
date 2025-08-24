@@ -1,15 +1,16 @@
 //
-//  ProductDetailViewController.swift
+//  MealDetailViewController.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import UIKit
+import Kingfisher
 
-class ProductDetailViewController: UIViewController {
+class MealDetailViewController: UIViewController {
     
-    private var product: ProductModel
+    private var category: MealCategory
     private var isFavorite: Bool = false
     
     private let scrollView: UIScrollView = {
@@ -97,7 +98,7 @@ class ProductDetailViewController: UIViewController {
     
     private let addToCartButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Add to cart", for: .normal)
+        button.setTitle("Add to Cart", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 8
@@ -113,8 +114,8 @@ class ProductDetailViewController: UIViewController {
     }()
     
     // MARK: - Initialization
-    init(product: ProductModel) {
-        self.product = product
+    init(category: MealCategory) {
+        self.category = category
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -126,7 +127,7 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        configure(with: product)
+        configure(with: category)
         setupNavigationBar()
     }
     
@@ -234,18 +235,20 @@ class ProductDetailViewController: UIViewController {
     }
     
     // MARK: - Configuration
-    func configure(with product: ProductModel) {
-        titleLabel.text = product.title
-        ratingLabel.text = "\(product.rating.rate) ★"
-        reviewsLabel.text = "\(product.rating.count) reviews"
-        approvalLabel.text = "\(Int(product.rating.rate * 20))%"
-        priceLabel.text = "£\(product.price)"
-        installmentLabel.text = "from £\(Int(product.price / 12)) per month"
-        descriptionLabel.text = product.description
+    func configure(with category: MealCategory) {
+        titleLabel.text = category.strCategory
+        descriptionLabel.text = category.strCategoryDescription
+        
+        // Hardcoding values
+        ratingLabel.text = "4.5 ★"
+        reviewsLabel.text = "120 reviews"
+        approvalLabel.text = "95%"
+        priceLabel.text = "£9.99"
+        installmentLabel.text = "from £1 per month"
         deliveryLabel.text = "Delivery on \(estimatedDeliveryDate())"
         
-        if let imageURL = URL(string: product.image) {
-            productImageView.loadImage(from: imageURL)
+        if let imageURL = URL(string: category.strCategoryThumb) {
+            productImageView.kf.setImage(with: imageURL)
         }
     }
     
@@ -256,13 +259,6 @@ class ProductDetailViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-    
-    
     // MARK: - Actions
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -270,22 +266,13 @@ class ProductDetailViewController: UIViewController {
     
     @objc private func heartButtonTapped() {
         isFavorite.toggle()
-        
         let heartImageName = isFavorite ? "heart.fill" : "heart"
         navigationItem.rightBarButtonItems?.last?.image = UIImage(systemName: heartImageName)
         navigationItem.rightBarButtonItems?.last?.tintColor = isFavorite ? .systemRed : .black
-        
-        if isFavorite {
-            CartManager.shared.addToCart(product: product)
-            showAlert(title: "Added to Cart", message: "\(product.title) has been added to your cart.")
-        } else {
-            CartManager.shared.removeFromCart(product: product)
-            showAlert(title: "Removed from Cart", message: "\(product.title) has been removed from your cart.")
-        }
     }
     
     @objc private func shareButtonTapped() {
-        let shareText = "Check out this product: \(product.title) - £\(product.price)"
+        let shareText = "Check out this category: \(category.strCategory)"
         let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
     }
@@ -294,33 +281,19 @@ class ProductDetailViewController: UIViewController {
         let isExpanded = descriptionLabel.numberOfLines == 0
         descriptionLabel.numberOfLines = isExpanded ? 3 : 0
         readMoreButton.setTitle(isExpanded ? "Read more" : "Read less", for: .normal)
-        
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func addToCartTapped() {
-        CartManager.shared.addToCart(product: product)
-        
-        let cartVC = CartViewController()
-        navigationController?.pushViewController(cartVC, animated: true)
-        
-        let alert = UIAlertController(title: "Added to Cart",
-                                      message: "\(product.title) has been added to your cart",
-                                      preferredStyle: .alert)
+        CartManager.shared.addToCart(product: category)
+        showAlert(title: "Added to Cart", message: "\(category.strCategory) has been added to your cart.")
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
-    }
-}
-
-extension UIImageView {
-    func loadImage(from url: URL) {
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                self?.image = UIImage(data: data)
-            }
-        }.resume()
     }
 }

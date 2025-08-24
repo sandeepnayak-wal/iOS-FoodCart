@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 01/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "Delivery address"
         label.font = .systemFont(ofSize: 12, weight: .medium)
-        label.textColor = .gray
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "666666")
         return label
     }()
     
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "92 High Street, London"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "000000")
         return label
     }()
     
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         searchBar.searchBarStyle = .minimal
         searchBar.layer.cornerRadius = 8
         searchBar.clipsToBounds = true
+        searchBar.barTintColor = ThemeColor.hexStringToUIColor(hex: "F5F5F5")
         return searchBar
     }()
     
@@ -39,8 +41,8 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "Delivery is 50% cheaper"
         label.font = .systemFont(ofSize: 14, weight: .medium)
-        label.textColor = .white
-        label.backgroundColor = .systemBlue
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "FFFFFF")
+        label.backgroundColor = ThemeColor.hexStringToUIColor(hex: "59C36A")
         label.textAlignment = .center
         label.layer.cornerRadius = 8
         label.clipsToBounds = true
@@ -51,13 +53,14 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "Categories"
         label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "000000")
         return label
     }()
     
     private let seeAllButton: UIButton = {
         let button = UIButton()
         button.setTitle("See all", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(ThemeColor.hexStringToUIColor(hex: "59C36A"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14)
         return button
     }()
@@ -78,6 +81,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "Flash Sale"
         label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "000000")
         return label
     }()
     
@@ -85,7 +89,10 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "02:59:23"
         label.font = .monospacedDigitSystemFont(ofSize: 14, weight: .medium)
-        label.textColor = .black
+        label.textColor = ThemeColor.hexStringToUIColor(hex: "000000")
+        label.backgroundColor = ThemeColor.hexStringToUIColor(hex: "D9F504")
+        label.layer.cornerRadius = 4
+        label.clipsToBounds = true
         return label
     }()
     
@@ -101,7 +108,6 @@ class HomeViewController: UIViewController {
         return cv
     }()
     
-    //Used standard icons as i don't have access to figma designs
     private let categories = [
         ("Phones", "phone"),
         ("Consoles", "gamecontroller"),
@@ -114,11 +120,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        viewModel.fetchFlashSaleItems()
+        viewModel.fetchMealCategories()
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = ThemeColor.hexStringToUIColor(hex: "FFFFFF")
         view.addSubview(deliveryLabel)
         view.addSubview(addressLabel)
         view.addSubview(searchBar)
@@ -215,11 +221,11 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        print("Settings button tapped")
+        // Does nothing as of now
     }
     
     @objc private func notificationButtonTapped() {
-        print("Notification button tapped")
+        // Does nothing as of now
     }
     
     private func setupBindings() {
@@ -228,7 +234,6 @@ class HomeViewController: UIViewController {
                 self?.productsCollectionView.reloadData()
             }
         }
-        
         viewModel.onError = { [weak self] errorMessage in
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Error",
@@ -250,7 +255,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == categoriesCollectionView {
             return categories.count
         } else {
-            return viewModel.flashSaleItems.count
+            return viewModel.mealCategories.count
         }
     }
     
@@ -262,24 +267,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-            let flashSaleItem = viewModel.flashSaleItems[indexPath.item]
-            cell.configure(with: flashSaleItem)
+            let mealCategory = viewModel.mealCategories[indexPath.item]
+            cell.configure(with: mealCategory)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productsCollectionView {
-            let selectedItem = viewModel.flashSaleItems[indexPath.item]
-            if let product = selectedItem.product {
-                let detailVC = ProductDetailViewController(product: product)
-                navigationController?.pushViewController(detailVC, animated: true)
-            } else {
-                print("Error: Product is nil")
-            }
-            
+            let selectedCategory = viewModel.mealCategories[indexPath.item]
+            let detailVC = MealDetailViewController(category: selectedCategory)
+            navigationController?.pushViewController(detailVC, animated: true)
         }
     }
 }
-
-

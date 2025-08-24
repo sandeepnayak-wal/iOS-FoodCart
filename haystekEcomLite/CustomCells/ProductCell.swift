@@ -2,19 +2,20 @@
 //  ProductCell.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import UIKit
+import Kingfisher
 
 protocol ProductCellDelegate: AnyObject {
-    func didUpdateCart(with product: ProductModel, isAdded: Bool)
+    func didUpdateFavorite(for category: MealCategory, isAdded: Bool)
 }
 
 class ProductCell: UICollectionViewCell {
     
     weak var delegate: ProductCellDelegate?
-    private var item: FlashSaleItem?
+    private var categoryItem: MealCategory?
     
     // MARK: - UI Components
     private let productImageView: UIImageView = {
@@ -58,10 +59,8 @@ class ProductCell: UICollectionViewCell {
         return button
     }()
     
-    // MARK: - Properties
     private var currentImageURL: String?
     
-    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -117,60 +116,37 @@ class ProductCell: UICollectionViewCell {
     }
     
     @objc private func favoriteButtonTapped() {
-        guard let product = item?.product else { return }
+        guard let category = categoryItem else { return }
         
         let isFavorite = favoriteButton.currentImage == UIImage(systemName: "heart.fill")
         let newImage = isFavorite ? UIImage(systemName: "heart") : UIImage(systemName: "heart.fill")
         favoriteButton.setImage(newImage, for: .normal)
         favoriteButton.tintColor = isFavorite ? .white : .systemRed
         
-        delegate?.didUpdateCart(with: product, isAdded: !isFavorite)
+        delegate?.didUpdateFavorite(for: category, isAdded: !isFavorite)
     }
     
     // MARK: - Configuration
-    func configure(with item: FlashSaleItem) {
-        titleLabel.text = item.product?.title
-        priceLabel.text = formatPrice(item.discountPrice)
+    func configure(with category: MealCategory) {
+        self.categoryItem = category
         
+        titleLabel.text = category.strCategory
+        priceLabel.text = "$112.90" // Hardcoded
+        originalPriceLabel.text = "$100.90"         
         titleLabel.sizeToFit()
         
-        if let originalPrice = item.originalPrice {
-            let attributedString = NSAttributedString(
-                string: formatPrice(originalPrice),
-                attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue]
-            )
-            originalPriceLabel.attributedText = attributedString
-            originalPriceLabel.isHidden = false
-        } else {
-            originalPriceLabel.isHidden = true
-        }
-        
-        // Set initial favorite state if needed
         favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         favoriteButton.tintColor = .white
         
-        loadImage(from: item.product?.image ?? "")
-    }
-    
-    private func formatPrice(_ price: Double) -> String {
-        return String(format: "£%.2f", price)
-    }
-    
-    private func loadImage(from urlString: String) {
-        currentImageURL = urlString
-        
-        // Show placeholder while loading
-        productImageView.image = UIImage(named: "placeholder") // Add a placeholder image to your assets
-        
-        ImageLoader.shared.loadImage(from: urlString) { [weak self] image in
-            // Ensure we're still dealing with the same cell/image request
-            guard self?.currentImageURL == urlString else { return }
-            
-            if let image = image {
-                self?.productImageView.image = image
-            } else {
-                self?.productImageView.image = UIImage(named: "imageLoadFailed") // Add a failure image
-            }
+        if let url = URL(string: category.strCategoryThumb) {
+            productImageView.kf.setImage(
+                with: url,
+                placeholder: UIImage(named: "placeholder"),
+                options: [
+                    .transition(.fade(0.3)),
+                    .cacheOriginalImage
+                ]
+            )
         }
     }
 }

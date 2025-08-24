@@ -2,7 +2,7 @@
 //  haystekEcomTabBarController.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 01/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import UIKit
@@ -12,7 +12,6 @@ class haystekEcomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
-       
     }
     
     private func setupTabBar() {
@@ -35,5 +34,4 @@ class haystekEcomTabBarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = UIColor.gray
         self.tabBar.tintColor = .systemGreen
     }
-    
 }

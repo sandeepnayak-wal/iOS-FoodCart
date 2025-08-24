@@ -2,14 +2,14 @@
 //  HomeViewModel.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 02/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import Foundation
 
 class HomeViewModel {
     private let networkService: NetworkServiceProtocol
-    var flashSaleItems: [FlashSaleItem] = []
+    var mealCategories: [MealCategory] = []
     var onDataUpdated: (() -> Void)?
     var onError: ((String) -> Void)?
     
@@ -17,28 +17,17 @@ class HomeViewModel {
         self.networkService = networkService
     }
     
-    func fetchFlashSaleItems() {
-        networkService.fetchProducts { [weak self] result in
+    func fetchMealCategories() {
+        networkService.fetchMealCategories { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let products):
-                    self?.processProducts(products)
+                case .success(let categories):
+                    self?.mealCategories = categories
+                    self?.onDataUpdated?()
                 case .failure(let error):
                     self?.onError?(error.localizedDescription)
                 }
             }
         }
-    }
-    
-    private func processProducts(_ products: [ProductModel]) {
-        flashSaleItems = products.prefix(5).map { product in
-            FlashSaleItem(
-                product: product,
-                originalPrice: product.price * 1.2,
-                discountPrice: product.price,
-                timeRemaining: "02:59:23"
-            )
-        }
-        onDataUpdated?()
     }
 }

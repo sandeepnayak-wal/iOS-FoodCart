@@ -2,7 +2,7 @@
 //  SearchViewController.swift
 //  haystekEcomLite
 //
-//  Created by Sandeep on 01/04/25.
+//  Created by Sandeep on 23/08/25.
 //
 
 import UIKit
@@ -72,9 +72,16 @@ class CartViewController: UIViewController {
         loadCartItems()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadCartItems()
+    }
+    
     // MARK: - Setup
     private func setupUI() {
         view.backgroundColor = .white
+        // tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 200
         
         [timeLabel, titleLabel, addressLabel, selectAllButton, tableView, checkoutButton].forEach {
             view.addSubview($0)
@@ -132,7 +139,7 @@ class CartViewController: UIViewController {
     
     private func updateCheckoutButton() {
         let total = cartItems.reduce(0) { $0 + ($1.isSelected ? $1.price * Double($1.quantity) : 0) }
-        checkoutButton.setTitle("Checkout (£\(String(format: "%.2f", total)))", for: .normal)
+        checkoutButton.setTitle("Checkout ($\(String(format: "%.2f", total)))", for: .normal)
     }
     
     // MARK: - Actions
@@ -141,7 +148,7 @@ class CartViewController: UIViewController {
         cartItems.indices.forEach { cartItems[$0].isSelected = !allSelected }
         CartManager.shared.cartItems = cartItems
         selectAllButton.setImage(UIImage(systemName: allSelected ? "square" : "checkmark.square.fill"),
-                               for: .normal)
+                                 for: .normal)
         tableView.reloadData()
         updateCheckoutButton()
     }
@@ -155,7 +162,7 @@ class CartViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-                                                
+
 
 // MARK: - UITableViewDataSource & Delegate
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
