@@ -22,12 +22,6 @@ https://github.com/user-attachments/assets/b3f606c7-0c51-46f5-aeb9-d6c899e20643
    ```bash
    git clone git@github.com:sandeepnayak-wal/iOS-FoodCart.git
 
-Adding user authentication (Sign In / Sign Up).
-
-Integrating Apple Pay for seamless checkout.
-
-Enhancing UI/UX with animations.
-
 👨‍💻 Author
 Developed by Sandeep. Feel free to connect on [LinkedIn.](https://www.linkedin.com/in/sandeepmegavath/)
 
